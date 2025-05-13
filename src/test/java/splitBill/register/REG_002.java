@@ -1,27 +1,12 @@
 package splitBill.register;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
-import java.time.Duration;
-
-public class RegisterTest {
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    @BeforeMethod
-    public void setUp() {
-        driver = new ChromeDriver(); // Pastikan chromedriver ada di PATH
-        driver.manage().window().maximize();
-        driver.get("https://splitbill-cb927.firebaseapp.com/register");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
+public class REG_002 extends BaseTest {
 
     @Test
     public void testRegisterWithExistingEmail() {
@@ -55,12 +40,5 @@ public class RegisterTest {
 
         // Tunggu popup menghilang
         wait.until(ExpectedConditions.invisibilityOf(alertBox));
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }
